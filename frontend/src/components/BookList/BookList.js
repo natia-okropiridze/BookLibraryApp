@@ -5,7 +5,9 @@ const BookList = () => {
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
   const handleDeleteBook = (id) => {
-    dispatch(deleteBook(id));
+    if (window.confirm("Are You Sure  to Delete?")) {
+      dispatch(deleteBook(id));
+    }
   };
   return (
     <div className="app-block book-list">
